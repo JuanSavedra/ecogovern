@@ -1,44 +1,44 @@
 # EcoGovern
 
-A MongoDB database project for ESG (Environmental, Social and Governance) monitoring. Models a platform where companies track carbon emissions, social projects, governance KPIs, and waste management data in a single NoSQL system.
+Banco de dados MongoDB para monitoramento ESG (Environmental, Social and Governance). Modela uma plataforma onde empresas registram emissões de carbono, projetos sociais, indicadores de governança e gestão de resíduos em um único sistema NoSQL.
 
 ## Collections
 
-| Collection | ESG Pillar | Description |
+| Collection | Pilar ESG | Descrição |
 |---|---|---|
-| `empresas` | Governance | Company profiles with ESG goals and certifications |
-| `emissoes_carbono` | Environmental | GHG emissions by scope (GHG Protocol) |
-| `projetos_sociais` | Social | CSR projects — flexible schema by type |
-| `indicadores_governanca` | Governance | KPIs: board diversity, compliance, audits |
-| `residuos_reciclagem` | Environmental | Waste generation and recycling by plant unit |
+| `empresas` | Governança | Perfil das empresas com metas ESG e certificações |
+| `emissoes_carbono` | Ambiental | Emissões GEE por escopo (GHG Protocol) |
+| `projetos_sociais` | Social | Projetos de responsabilidade social — schema flexível por tipo |
+| `indicadores_governanca` | Governança | KPIs: diversidade no conselho, compliance, auditorias |
+| `residuos_reciclagem` | Ambiental | Geração e reciclagem de resíduos por unidade fabril |
 
-## Highlights
+## Destaques
 
-- **Flexible schema** on `projetos_sociais`: education, health, and housing projects each carry their own fields without null padding
-- Full CRUD operations across all 5 collections
-- Real-world ESG standards referenced: GHG Protocol scopes 1/2/3, GRI indicators, ISO 14001, B Corp
+- **Schema flexível** em `projetos_sociais`: projetos de educação, saúde e habitação possuem campos próprios sem campos nulos desnecessários
+- Operações CRUD completas nas 5 collections
+- Padrões ESG reais referenciados: GHG Protocol (escopos 1/2/3), indicadores GRI, ISO 14001, B Corp
 
 ## Stack
 
 - MongoDB Atlas (Free Tier)
 - mongosh
 
-## Running
+## Como executar
 
-1. Connect to your MongoDB Atlas cluster via mongosh
-2. Load the script:
+1. Conecte ao seu cluster no MongoDB Atlas via mongosh
+2. Carregue o script:
 
 ```js
-load("/path/to/ecogovern.js")
+load("/caminho/para/ecogovern.js")
 ```
 
-All collections are created and populated automatically. The script also runs sample queries, updates, and deletes with labeled output for each operation.
+Todas as collections são criadas e populadas automaticamente. O script também executa consultas, atualizações e remoções com saídas rotuladas para cada operação.
 
-## Data
+## Dados
 
-11 real Brazilian companies across sectors (mining, energy, cosmetics, aviation, beverages), with:
+11 empresas brasileiras reais de setores variados (mineração, energia, cosméticos, aviação, bebidas), com:
 
-- 58 documents total across 5 collections
-- 15+ read queries with filters, projections and field comparisons
-- Updates using `$set`, `$inc`, `$push`, `$mul`
-- Deletes with before/after document count
+- 58 documentos no total distribuídos nas 5 collections
+- 15+ consultas com filtros, projeções e comparação entre campos
+- Atualizações com `$set`, `$inc`, `$push`, `$mul`
+- Remoções com contagem de documentos antes e depois
